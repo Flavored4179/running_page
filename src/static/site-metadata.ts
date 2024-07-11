@@ -12,7 +12,7 @@ interface ISiteMetadataResult {
 const data: ISiteMetadataResult = {
   siteTitle: "Darren's Running Page",
   siteUrl: 'https://run.wdoc.top',
-  logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtc69JxHNcmN1ETpMUX4dozAgAN6iPjWalQ&usqp=CAU',
+  logo: 'https://img.wdoc.top/2024/07/538277eea7de7a50befc66e45bbaffca.jpeg',
   description: '小米手环7Pro记录跑步',
   navLinks: [
     {
