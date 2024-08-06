@@ -140,8 +140,9 @@ class Track:
         if not time_values:
             raise TrackLoadError("Track is empty.")
 
-        self.start_time, self.end_time = time_values[0], time_values[-1]
-        moving_time = int(self.end_time.timestamp() - self.start_time.timestamp())
+        self.start_time, self.end_time = tcx.start_local_time, time_values[-1]
+        # moving_time = int(self.end_time.timestamp() - self.start_time.timestamp())
+        moving_time = int(tcx.total_time_seconds)
         self.run_id = self.__make_run_id(self.start_time)
         self.average_heartrate = tcx.hr_avg
         polyline_container = []
@@ -156,7 +157,7 @@ class Track:
             polyline_container.extend([[p[0], p[1]] for p in position_values])
             self.polyline_container = polyline_container
             self.start_time_local, self.end_time_local = parse_datetime_to_local(
-                self.start_time, self.end_time, polyline_container[0]
+                tcx.start_local_time, self.end_time, polyline_container[0]
             )
             # get start point
             try:

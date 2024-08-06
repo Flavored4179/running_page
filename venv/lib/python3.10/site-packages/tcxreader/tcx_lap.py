@@ -6,10 +6,10 @@ from typing import List
 class TCXLap:
     def __init__(self, trackpoints: List[TCXTrackPoint] = None, calories: int = None,
                  hr_avg: float = None, hr_max: int = None, hr_min: int = None, max_speed: float = None,
-                 avg_speed: float = None, start_time: datetime = None, end_time: datetime = None,
+                 avg_speed: float = None, start_time: datetime = None, end_time: datetime = None, start_local_time: datetime = None,
                  duration: float = None, cadence_avg: float = None, cadence_max: float = None, ascent: float = None,
                  descent: float = None, distance: float = None, altitude_avg: float = None, altitude_min: float = None,
-                 altitude_max: float = None, lx_ext: dict = None, tpx_ext_stats: dict = None,
+                 altitude_max: float = None, lx_ext: dict = None, tpx_ext_stats: dict = None, total_time_seconds: float = None
                  ):
         """
         Similar to TCXExercise, but is a container class for a lap.
@@ -45,6 +45,7 @@ class TCXLap:
         self.avg_speed: float = avg_speed
         self.start_time: datetime = start_time
         self.end_time: datetime = end_time
+        self.start_local_time: datetime = start_local_time
         self.cadence_avg: float = cadence_avg
         self.cadence_max: float = cadence_max
         self.ascent: float = ascent
@@ -59,3 +60,4 @@ class TCXLap:
         self.lx_ext: dict = lx_ext
         if self.lx_ext == None:
             self.lx_ext: dict = {}
+        self.total_time_seconds: float = total_time_seconds

@@ -29,7 +29,7 @@ class TCXReader:
         :returns: A list of TCXTrackPoint objects.
         """
 
-        tcx_exercise = TCXExercise(calories=0, distance=0, tpx_ext_stats={}, lx_ext={}, laps=[])
+        tcx_exercise = TCXExercise(calories=0, distance=0, tpx_ext_stats={}, lx_ext={}, laps=[], total_time_seconds=0)
 
         tree = ET.parse(fileLocation)
         root = tree.getroot()
@@ -40,13 +40,17 @@ class TCXReader:
                     if activity.tag == GARMIN_XML_SCHEMA + 'Activity':
                         tcx_exercise.activity_type = activity.attrib['Sport']
                         for lap in activity:
-                            tcx_lap = TCXLap(calories=0, distance=0, trackpoints=[], tpx_ext_stats={}, lx_ext={})
+                            tcx_lap = TCXLap(calories=0, distance=0, trackpoints=[], tpx_ext_stats={}, lx_ext={}, total_time_seconds=0)
                             if lap.tag == GARMIN_XML_SCHEMA + 'Lap':
+                                tcx_exercise.start_local_time = datetime.datetime.strptime(lap.attrib['StartTime'],"%Y-%m-%dT%H:%M:%S.%fZ")
                                 for lap_child in lap:
                                     if lap_child.tag == GARMIN_XML_SCHEMA + 'Calories':
                                         calories = int(round(float(lap_child.text)))
                                         tcx_exercise.calories += calories
                                         tcx_lap.calories += calories
+                                    if lap_child.tag == GARMIN_XML_SCHEMA + 'TotalTimeSeconds':
+                                        tcx_exercise.total_time_seconds += float(lap_child.text)
+                                        tcx_lap.total_time_seconds += float(lap_child.text)
                                     if lap_child.tag == GARMIN_XML_SCHEMA + 'DistanceMeters':
                                         tcx_exercise.distance += float(lap_child.text)
                                         tcx_lap.distance += float(lap_child.text)
