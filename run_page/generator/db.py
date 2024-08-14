@@ -87,9 +87,8 @@ def update_or_create_activity(session, run_activity):
             location_country = getattr(run_activity, "location_country", "")
             print(location_country)
             # or China for #176 to fix
-            if not location_country and start_point or (location_country == "China" or location_country == "United States"):
+            if not location_country and start_point or location_country == "China":
                 try:
-                    print('....abc!!!')
                     location_country = str(
                         g.reverse(
                             f"{start_point.lat}, {start_point.lon}", language="zh-CN"
@@ -106,7 +105,6 @@ def update_or_create_activity(session, run_activity):
                             )
                         )
                     except Exception as e:
-                        print('error!!!')
                         pass
 
             activity = Activity(
