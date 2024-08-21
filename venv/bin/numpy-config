@@ -1,4 +1,4 @@
-#!/Users/xo9/Gitlab/running_page/venv/bin/python
+#!/Users/xo9/Downloads/running_page/venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
