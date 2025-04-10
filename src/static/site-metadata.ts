@@ -16,6 +16,10 @@ const data: ISiteMetadataResult = {
   description: '小米手环7Pro记录跑步',
   navLinks: [
     {
+      name: 'Summary',
+      url: '/summary',
+    },
+    {
       name: 'About',
       url: 'https://blog.wdoc.top',
     },

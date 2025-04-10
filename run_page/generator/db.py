@@ -7,7 +7,16 @@ import certifi
 
 import geopy
 from geopy.geocoders import Nominatim
-from sqlalchemy import Column, Float, Integer, Interval, String, create_engine
+from sqlalchemy import (
+    Column,
+    Float,
+    Integer,
+    Interval,
+    String,
+    create_engine,
+    inspect,
+    text,
+)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -33,6 +42,7 @@ ACTIVITY_KEYS = [
     "distance",
     "moving_time",
     "type",
+    "subtype",
     "start_date",
     "start_date_local",
     "location_country",
@@ -51,6 +61,7 @@ class Activity(Base):
     moving_time = Column(Interval)
     elapsed_time = Column(Interval)
     type = Column(String)
+    subtype = Column(String)
     start_date = Column(String)
     start_date_local = Column(String)
     location_country = Column(String)
@@ -96,7 +107,7 @@ def update_or_create_activity(session, run_activity):
                     )
                     print(location_country)
                 # limit (only for the first time)
-                except Exception as e:
+                except Exception:
                     try:
                         location_country = str(
                             g.reverse(
@@ -104,7 +115,7 @@ def update_or_create_activity(session, run_activity):
                                 language="zh-CN",
                             )
                         )
-                    except Exception as e:
+                    except Exception:
                         pass
 
             activity = Activity(
@@ -114,6 +125,7 @@ def update_or_create_activity(session, run_activity):
                 moving_time=run_activity.moving_time,
                 elapsed_time=run_activity.elapsed_time,
                 type=run_activity.type,
+                subtype=run_activity.subtype,
                 start_date=run_activity.start_date,
                 start_date_local=run_activity.start_date_local,
                 location_country=location_country,
@@ -131,6 +143,7 @@ def update_or_create_activity(session, run_activity):
             activity.moving_time = run_activity.moving_time
             activity.elapsed_time = run_activity.elapsed_time
             activity.type = run_activity.type
+            activity.subtype = run_activity.subtype
             activity.average_heartrate = run_activity.average_heartrate
             activity.average_speed = float(run_activity.average_speed)
             activity.summary_polyline = (
@@ -143,10 +156,37 @@ def update_or_create_activity(session, run_activity):
     return created
 
 
+def add_missing_columns(engine, model):
+    inspector = inspect(engine)
+    table_name = model.__tablename__
+    columns = {col["name"] for col in inspector.get_columns(table_name)}
+    missing_columns = []
+
+    for column in model.__table__.columns:
+        if column.name not in columns:
+            missing_columns.append(column)
+    if missing_columns:
+        with engine.connect() as conn:
+            for column in missing_columns:
+                column_type = str(column.type)
+                conn.execute(
+                    text(
+                        f"ALTER TABLE {table_name} ADD COLUMN {column.name} {column_type}"
+                    )
+                )
+
+
 def init_db(db_path):
     engine = create_engine(
         f"sqlite:///{db_path}", connect_args={"check_same_thread": False}
     )
     Base.metadata.create_all(engine)
-    session = sessionmaker(bind=engine)
-    return session()
+
+    # check missing columns
+    add_missing_columns(engine, Activity)
+
+    sm = sessionmaker(bind=engine)
+    session = sm()
+    # apply the changes
+    session.commit()
+    return session
