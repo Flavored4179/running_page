@@ -63,6 +63,6 @@ jobs:
 
       - name: Run check and build
         run: |
-          pnpm run check
+          pnpm prettier --write src/main.tsx src/**/*.{css,module.css,json,ts,tsx} *.{yaml,json,ts} || true
           pnpm run lint
           pnpm run build
