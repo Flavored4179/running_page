@@ -1,7 +1,6 @@
 import datetime
 import random
 import string
-import time
 import ssl
 import certifi
 
