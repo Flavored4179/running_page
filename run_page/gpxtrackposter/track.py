@@ -179,7 +179,7 @@ class Track:
             polyline_container.extend([[p[0], p[1]] for p in position_values])
             self.polyline_container = polyline_container
             self.start_time_local, self.end_time_local = parse_datetime_to_local(
-                tcx.start_local_time, self.end_time, polyline_container[0]
+                tcx.start_time, self.end_time, polyline_container[0]
             )
             # get start point
             try:
