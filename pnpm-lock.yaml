@@ -43,13 +43,13 @@ dependencies:
     version: 15.8.1
   rc-virtual-list:
     specifier: ^3.19.2
-    version: 3.19.2(react-dom@18.2.0)(react@18.2.0)
+    version: 3.19.2(react-dom@18.2.0)(react@18.3.1)
   react:
     specifier: ^18.2.0
     version: 18.3.1
   react-dom:
     specifier: ^18.2.0
-    version: 18.3.1(react@18.3.1)
+    version: 18.2.0(react@18.3.1)
   react-ga4:
     specifier: ^2.1.0
     version: 2.1.0
@@ -58,13 +58,13 @@ dependencies:
     version: 2.0.5(react@18.3.1)
   react-map-gl:
     specifier: ^7.1.6
-    version: 7.1.9(mapbox-gl@2.15.0)(react-dom@18.3.1)(react@18.3.1)
+    version: 7.1.9(mapbox-gl@2.15.0)(react-dom@18.2.0)(react@18.3.1)
   react-router-dom:
     specifier: ^6.15.0
-    version: 6.30.1(react-dom@18.3.1)(react@18.3.1)
+    version: 6.30.1(react-dom@18.2.0)(react@18.3.1)
   recharts:
     specifier: ^2.15.2
-    version: 2.15.4(react-dom@18.3.1)(react@18.3.1)
+    version: 2.15.4(react-dom@18.2.0)(react@18.3.1)
   vite:
     specifier: ^7.1.2
     version: 7.1.4(@types/node@24.3.0)
@@ -3797,51 +3797,51 @@ packages:
     resolution: {integrity: sha512-RKJ22hX8mHe3Y6wH/N3wCM6BWtjaxIyyUIkpHOvfFnxdI4yD4tBXEBKSbriGujF6jnSVkJrffuo6vxACiSSxIw==}
     dev: false
 
-  /rc-resize-observer@1.4.3(react-dom@18.2.0)(react@18.2.0):
+  /rc-resize-observer@1.4.3(react-dom@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-YZLjUbyIWox8E9i9C3Tm7ia+W7euPItNWSPX5sCcQTYbnwDb5uNpnLHQCG1f22oZWUhLw4Mv2tFmeWe68CDQRQ==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.22.11
+      '@babel/runtime': 7.28.3
       classnames: 2.5.1
-      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.2.0(react@18.3.1)
       resize-observer-polyfill: 1.5.1
     dev: false
 
-  /rc-util@5.44.4(react-dom@18.2.0)(react@18.2.0):
+  /rc-util@5.44.4(react-dom@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-resueRJzmHG9Q6rI/DfK6Kdv9/Lfls05vzMs1Sk3M2P+3cJa+MakaZyWY8IPfehVuhPJFKrIY1IK4GqbiaiY5w==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.22.11
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      '@babel/runtime': 7.28.3
+      react: 18.3.1
+      react-dom: 18.2.0(react@18.3.1)
       react-is: 18.3.1
     dev: false
 
-  /rc-virtual-list@3.19.2(react-dom@18.2.0)(react@18.2.0):
+  /rc-virtual-list@3.19.2(react-dom@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-Ys6NcjwGkuwkeaWBDqfI3xWuZ7rDiQXlH1o2zLfFzATfEgXcqpk8CkgMfbJD81McqjcJVez25a3kPxCR807evA==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.22.11
+      '@babel/runtime': 7.28.3
       classnames: 2.5.1
-      rc-resize-observer: 1.4.3(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      rc-resize-observer: 1.4.3(react-dom@18.2.0)(react@18.3.1)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.2.0(react@18.3.1)
     dev: false
 
-  /react-dom@18.2.0(react@18.2.0):
+  /react-dom@18.2.0(react@18.3.1):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
-      react: ^18.3.1
+      react: ^18.2.0
     dependencies:
       loose-envify: 1.4.0
       react: 18.3.1
@@ -3874,7 +3874,7 @@ packages:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
     dev: false
 
-  /react-map-gl@7.1.9(mapbox-gl@2.15.0)(react-dom@18.3.1)(react@18.3.1):
+  /react-map-gl@7.1.9(mapbox-gl@2.15.0)(react-dom@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-KsCc8Gyn05wVGlHZoopaiiCr0RCAQ6LDISo5sEy1/pV/d7RlozkF946tiX7IgyijJQMRujHol5QdwUPESjh73w==}
     peerDependencies:
       mapbox-gl: '>=1.13.0'
@@ -3891,7 +3891,7 @@ packages:
       '@types/mapbox-gl': 3.4.1
       mapbox-gl: 2.15.0
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 18.2.0(react@18.3.1)
     dev: false
 
   /react-refresh@0.17.0:
@@ -3899,7 +3899,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /react-router-dom@6.30.1(react-dom@18.3.1)(react@18.3.1):
+  /react-router-dom@6.30.1(react-dom@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-llKsgOkZdbPU1Eg3zK8lCn+sjD9wMRZZPuzmdWWX5SUs8OFkN5HnFVC0u5KMeMaC9aoancFI/KoLuKPqN+hxHw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -3908,7 +3908,7 @@ packages:
     dependencies:
       '@remix-run/router': 1.23.0
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 18.2.0(react@18.3.1)
       react-router: 6.30.1(react@18.3.1)
     dev: false
 
@@ -3922,7 +3922,7 @@ packages:
       react: 18.3.1
     dev: false
 
-  /react-smooth@4.0.4(react-dom@18.3.1)(react@18.3.1):
+  /react-smooth@4.0.4(react-dom@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-gnGKTpYwqL0Iii09gHobNolvX4Kiq4PKx6eWBCYYix+8cdw+cGo3do906l1NBPKkSWx1DghC1dlWG9L2uGd61Q==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -3931,11 +3931,11 @@ packages:
       fast-equals: 5.2.2
       prop-types: 15.8.1
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-transition-group: 4.4.5(react-dom@18.3.1)(react@18.3.1)
+      react-dom: 18.2.0(react@18.3.1)
+      react-transition-group: 4.4.5(react-dom@18.2.0)(react@18.3.1)
     dev: false
 
-  /react-transition-group@4.4.5(react-dom@18.3.1)(react@18.3.1):
+  /react-transition-group@4.4.5(react-dom@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
     peerDependencies:
       react: '>=16.6.0'
@@ -3946,7 +3946,7 @@ packages:
       loose-envify: 1.4.0
       prop-types: 15.8.1
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 18.2.0(react@18.3.1)
     dev: false
 
   /react@18.3.1:
@@ -3981,7 +3981,7 @@ packages:
       decimal.js-light: 2.5.1
     dev: false
 
-  /recharts@2.15.4(react-dom@18.3.1)(react@18.3.1):
+  /recharts@2.15.4(react-dom@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-UT/q6fwS3c1dHbXv2uFgYJ9BMFHu3fwnd7AYZaEQhXuYQ4hgsxLvsUXzGdKeZrW5xopzDCvuA2N41WJ88I7zIw==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -3992,9 +3992,9 @@ packages:
       eventemitter3: 4.0.7
       lodash: 4.17.21
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 18.2.0(react@18.3.1)
       react-is: 18.3.1
-      react-smooth: 4.0.4(react-dom@18.3.1)(react@18.3.1)
+      react-smooth: 4.0.4(react-dom@18.2.0)(react@18.3.1)
       recharts-scale: 0.4.5
       tiny-invariant: 1.3.3
       victory-vendor: 36.9.2
