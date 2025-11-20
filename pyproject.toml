@@ -50,3 +50,6 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
+
+[tool.pdm.scripts]
+no_build = "pip install --only-binary=:all: duckdb"
